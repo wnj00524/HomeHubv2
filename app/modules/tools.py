@@ -3,8 +3,8 @@ import os
 
 def get_setting(setting, file):
     dirs = os.getcwd().split("\\")[-1].lower()
-    if dirs == "homehubmk1":
-        file = os.getcwd() + "\\Units\\" + file
+    if dirs == "HomeHubv2":
+        file = os.getcwd() + "\\app\\" + file
     if os.path.isfile(file):
         read_dictionary = np.load(file,allow_pickle='TRUE').item()
         #print(read_dictionary)
@@ -17,8 +17,8 @@ def get_setting(setting, file):
 
 def save_setting(setting, setting_value,file):
     dirs = os.getcwd().split("\\")[-1].lower()
-    if dirs == "homehubmk1":
-        file = os.getcwd() + "\\Units\\" + file
+    if dirs == "HomeHubv2":
+        file = os.getcwd() + "\\app\\" + file
     if os.path.isfile(file):
         read_dictionary = np.load(file,allow_pickle='TRUE').item()
     else:

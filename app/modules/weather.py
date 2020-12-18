@@ -21,8 +21,8 @@ wt = weather()
 def first_run_check():
     file = 'weather.npy'
     dirs = os.getcwd().split("\\")[-1].lower()
-    if dirs == "homehubmk1":
-        file = os.getcwd() + "\\Units\\" + file
+    if dirs == "HomeHubv2":
+        file = os.getcwd() + "\\app\\" + file
     if os.path.isfile(file) == False:
         return True
     else:
@@ -30,8 +30,8 @@ def first_run_check():
 
 def saved_weather_file_path(file):
     dirs = os.getcwd().split("\\")[-1].lower()
-    if dirs == "homehubmk1":
-        file = os.getcwd() + "\\Units\\" + file
+    if dirs == "HumHubv2":
+        file = os.getcwd() + "\\app\\" + file
     return file
 
 #w.detailed_status         # 'clouds'
