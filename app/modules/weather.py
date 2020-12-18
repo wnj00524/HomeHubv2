@@ -15,6 +15,7 @@ class weather():
     desc = ""
     time_got = ""
     hr_time_got = ""
+    location = ""
 
 wt = weather()
 
@@ -48,12 +49,13 @@ def save_weather(w, rec_time):
     tools.save_setting("temp", w.temperature('celsius')['temp'], fileN)
     tools.save_setting("wind_speed",w.wind('miles_hour'),fileN)
     #tools.save_setting("wind_dir",w.wind('deg'),fileN)
-    tools.save_setting("rain",w.rain,fileN)\\
+    tools.save_setting("rain",w.rain,fileN)
     tools.save_setting("clouds",w.clouds,fileN)
 
 
+
 def load_weather_from_file(fileName):
-    print("Reading from file....")
+    #print("Reading from file....")
     wt.temp = tools.get_setting("temp",fileName)
     wt.time_got = tools.get_setting("time_got", fileName)
     wind_dict = ast.literal_eval(str(tools.get_setting("wind_speed",fileName)))
@@ -67,12 +69,11 @@ def load_weather_from_file(fileName):
 
 
 
-def get_weather(location):
-    key = tools.get_setting("owm","settings.npy")
+def get_weather(location, key):
     owm = OWM(key)
     mgr = owm.weather_manager()
     if first_run_check():
-        print("Weather file not found, updating...")
+        #print("Weather file not found, updating...")
         obs = mgr.weather_at_place(location)
         w = obs.weather
         save_weather(w, obs.rec_time)
@@ -80,11 +81,12 @@ def get_weather(location):
         #todo 2: Check when the weather last updated and if more than ten minutes update the weather.
         time = float(tools.get_setting("time_got","weather.npy"))
         if (t.time() - time) > 600:
-            print("Time for an update...")
+            #print("Time for an update...")
             obs = mgr.weather_at_place(location)
             w = obs.weather
             save_weather(w, obs.rec_time)
     load_weather_from_file("weather.npy")
+    wt.location = location
     return wt
 
 
