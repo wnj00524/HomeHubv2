@@ -20,13 +20,18 @@ def first_run(tv_ip):
     except:
         pass
 
+def list_current_app(tv_ip):
+    webos_client = WebOsClient(tv_ip)
+    return webos_client.get_current_app()
+
 def list_app(tv_ip):
     r = set()
     webos_client = WebOsClient(tv_ip)
     for app in webos_client.get_apps():
+        print(app)
         #print(app['title'])
         r.add(app['title'])
-        for ap1 in r:
-            print(ap1)
+        #for ap1 in r:
+            #print(ap1)
         #print(r)
     return r
