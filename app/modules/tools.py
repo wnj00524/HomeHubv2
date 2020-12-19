@@ -16,6 +16,7 @@ def get_setting(setting, file):
     return got_setting
 
 def save_setting(setting, setting_value,file):
+
     dirs = os.getcwd().split("\\")[-1].lower()
     if dirs == "HomeHubv2":
         file = os.getcwd() + "\\app\\" + file

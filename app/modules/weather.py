@@ -87,6 +87,7 @@ def get_weather(location, key):
             save_weather(w, obs.rec_time)
     load_weather_from_file("weather.npy")
     wt.location = location
+    wt.wind_speed = round(wt.wind_speed, 1)
     return wt
 
 
