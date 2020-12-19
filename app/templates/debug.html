@@ -9,6 +9,11 @@
 <div>Weather location {{ location }}</div>
 <div>LG TV Mac = {{  tv_mac }} </div>
 <div>LG TV IP = {{ tv_ip}} </div>
+<div><p>Apps = </p>
+    {% for app in apps %}
+<p>{{ app }}</p>
+    {%  endfor %}
+</div>
 
 </body>
 </html>
