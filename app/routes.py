@@ -9,8 +9,8 @@ from app.modules import lg_tv
 def index():
     gotWeather = weather.get_weather(user.settings['location'], user.settings['weather_api_key'])
     if request.method == 'POST':
-        if request.form.get('Wake') == 'wake':
-            lg_tv.wakeup(user.settings['tv_mac'])
+        if request.form.get('Netflix') == 'netflix':
+            lg_tv.run_app(user.settings['tv_ip'], 'netflix')
     return render_template("index.html", user=user.settings['user'], temp=gotWeather.temp, wind_speed=gotWeather.wind_speed, wind_direction=gotWeather.wind_dir, location=gotWeather.location)
 
 @app.route('/debug')
