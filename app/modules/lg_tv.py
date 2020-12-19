@@ -20,6 +20,10 @@ def first_run(tv_ip):
     except:
         pass
 
+def power_down(tv_ip):
+    webos_client = WebOsClient(tv_ip)
+    WebOsClient.power_off
+
 def list_current_app(tv_ip):
     webos_client = WebOsClient(tv_ip)
     return webos_client.get_current_app()

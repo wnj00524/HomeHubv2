@@ -13,6 +13,8 @@ def index():
             lg_tv.run_app(user.settings['tv_ip'], 'netflix')
         if request.form.get('GamePass') == 'gamepass':
             lg_tv.run_app(user.settings['tv_ip'], 'com.deltatre.nflgamepass.lgapp')
+        if request.form.get('Off') == 'Off':
+            lg_tv.power_down(user.settings['tv_ip'])
     return render_template("index.html", user=user.settings['user'], temp=gotWeather.temp, wind_speed=gotWeather.wind_speed, wind_direction=gotWeather.wind_dir, location=gotWeather.location)
 
 @app.route('/debug')
