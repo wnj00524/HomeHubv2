@@ -1,4 +1,48 @@
 <!doctype html>
+<style>
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+    border-radius: 8px;
+}
+
+    /* Tooltip container */
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+
+
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
 <html>
 	<body>
 	<table width="100%" border="1">
@@ -11,12 +55,17 @@
     <tr>
       <td bgcolor="#6DC0DD"><p>Weather for {{user }} in {{ location }}</p>
       <p>It is {{ temp }} degrees celcius outside!</p>
-      <p>Wind is {{  wind_speed  }} from {{ wind_direction }} degrees.</p></td>
+          <div class="tooltip">
+                <p>Wind is {{  wind_speed  }} from {{ wind_direction }} degrees.</p>
+              <span class="tooltiptext">Some tooltip stuff</span>
+          </div>
+      </td>
       <td>&nbsp;</td>
       <td>
           <form method="post" action="/">
               <p>
                   <input type="submit" name="Wake" value="wake">
+
               </p>
           </form>
       </td>
