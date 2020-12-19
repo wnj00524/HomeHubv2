@@ -12,3 +12,7 @@ def index():
         if request.form.get('Wake') == 'wake':
             lg_tv.wakeup(user.settings['tv_mac'])
     return render_template("index.html", user=user.settings['user'], temp=gotWeather.temp, wind_speed=gotWeather.wind_speed, wind_direction=gotWeather.wind_dir, location=gotWeather.location)
+
+@app.route('/debug')
+def debug():
+    return render_template("debug.html",name=user.settings['user'],tv_ip=user.settings['tv_ip'],tv_mac=user.settings['tv_mac'])

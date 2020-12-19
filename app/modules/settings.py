@@ -17,6 +17,8 @@ def init_settings(settingFile):
     settings = { "user": "Bob" }
     settings["weather_api_key"] = "null"
     settings["location"] = "London, GB"
+    settings["tv_mac"] = "null"
+    settings["tv_ip"] = "null"
     with open(settingFile,"w") as p:
         json.dump(settings, p)
     return 0
